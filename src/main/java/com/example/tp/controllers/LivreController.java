@@ -16,8 +16,15 @@ import com.example.tp.repositories.LivreRepository;
         public Livre livres(@PathVariable long id) {
             return livreRepository.findById(id).get();
         }
+        @PostMapping("/insert")
+        public Livre addLivre(@RequestBody Livre livre) {
+            Livre l3=new Livre();
+            l3.setAuteur(livre.getAuteur());
+            l3.setPrix(livre.getPrix());
+            l3.setTitre(livre.getTitre());
+            livreRepository.save(l3);
+            return l3;
 
 
 
-
-    }
+    }}
